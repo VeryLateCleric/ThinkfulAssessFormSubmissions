@@ -31,6 +31,13 @@ document.addEventListener("DOMContentLoaded", function () {
     errorElement.textContent = message;
   }
 
+  // function to remove error messages
+  function removeError() {
+    const errorElement = document.getElementById("searchError");
+    if (errorElement) {
+      errorElement.remove();
+    }
+  }
 
   function performSearch(searchTerm) {
     const articles = document.querySelectorAll(".article");
