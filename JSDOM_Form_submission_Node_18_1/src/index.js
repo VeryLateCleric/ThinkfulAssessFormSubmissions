@@ -41,18 +41,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // search function begins by hiding all and removing hidden tag if matching
   function performSearch(searchTerm) {
-    const articles = document.querySelectorAll(".article");
+    const titles = document.querySelectorAll("h2");
 
-    articles.forEach(function (article) {
-      article.classList.add("hidden");
+    titles.forEach(function (title) {
+      title.parentElement.classList.add("hidden");
     });
-    articles.forEach(function (article) {
-      const articleTitle = article
-        .querySelector("h2")
-        .textContent.toLowerCase();
 
-      if (articleTitle.includes(searchTerm)) {
-        article.classList.remove("hidden");
+    titles.forEach(function (title) {
+      const innerHTML = title.innerHTML.toLocaleLowerCase()
+      if (innerHTML.includes(searchTerm.toLowerCase())) {
+        title.parentElement.classList.remove("hidden");
       }
     });
   }
